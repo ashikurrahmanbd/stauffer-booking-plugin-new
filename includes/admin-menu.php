@@ -93,6 +93,17 @@ function stauffer_booking_get_default_settings() {
 		// Booking summary
 		'summary_title'   => 'Booking Summery',
 		'success_message' => 'Thank you, your booking has been confirmed',
+
+		// Coupon section
+		'coupon_placeholder_text' => 'Coupon Code',
+		'coupon_button_text'      => 'Apply Coupon',
+		'coupon_invalid_text'     => 'Coupon code is not correct.',
+		'coupon_expired_text'     => 'Coupon code has been expired.',
+		'coupon_applied_text'     => 'Coupon applied successfully.',
+		'coupon_remove_text'      => 'Remove',
+		'coupon_subtotal_text'    => 'Subtotal',
+		'coupon_discount_text'    => 'Discount',
+		'coupon_email_label_text' => 'Applied Coupon',
 	);
 }
 
@@ -181,6 +192,17 @@ function stauffer_booking_form_customization_page() {
 			'summary_title'           => sanitize_text_field( $_POST['summary_title'] ?? 'Booking Summery' ),
 
 			'success_message'         => sanitize_text_field( $_POST['success_message'] ?? 'Thank you, your booking has been confirmed' ),
+
+			//Coupon section texts
+			'coupon_placeholder_text' => sanitize_text_field( $_POST['coupon_placeholder_text'] ?? 'Coupon Code' ),
+			'coupon_button_text'      => sanitize_text_field( $_POST['coupon_button_text'] ?? 'Apply Coupon' ),
+			'coupon_invalid_text'     => sanitize_text_field( $_POST['coupon_invalid_text'] ?? 'Coupon code is not correct.' ),
+			'coupon_expired_text'     => sanitize_text_field( $_POST['coupon_expired_text'] ?? 'Coupon code has been expired.' ),
+			'coupon_applied_text'     => sanitize_text_field( $_POST['coupon_applied_text'] ?? 'Coupon applied successfully.' ),
+			'coupon_remove_text'      => sanitize_text_field( $_POST['coupon_remove_text'] ?? 'Remove' ),
+			'coupon_subtotal_text'    => sanitize_text_field( $_POST['coupon_subtotal_text'] ?? 'Subtotal' ),
+			'coupon_discount_text'    => sanitize_text_field( $_POST['coupon_discount_text'] ?? 'Discount' ),
+			'coupon_email_label_text' => sanitize_text_field( $_POST['coupon_email_label_text'] ?? 'Applied Coupon' ),
 
 
 
@@ -562,6 +584,89 @@ function stauffer_booking_form_customization_page() {
 								value="<?php echo esc_attr( $settings['recipient_email'] ); ?>">
 						</td>
 					</tr>
+				</table>
+
+				<h2>Coupon Texts</h2>
+
+				<p class="description">
+					All frontend text used by the coupon feature. Manage the coupon codes themselves
+					under <a href="<?php echo esc_url( admin_url( 'admin.php?page=stauffer-booking-coupons' ) ); ?>">Stauffer Coupons</a>.
+				</p>
+
+				<table class="form-table">
+
+					<tr>
+						<th><label for="coupon_placeholder_text">Coupon Input Placeholder</label></th>
+						<td>
+							<input type="text" id="coupon_placeholder_text" name="coupon_placeholder_text" class="regular-text"
+								value="<?php echo esc_attr( $settings['coupon_placeholder_text'] ); ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<th><label for="coupon_button_text">Apply Coupon Button Text</label></th>
+						<td>
+							<input type="text" id="coupon_button_text" name="coupon_button_text" class="regular-text"
+								value="<?php echo esc_attr( $settings['coupon_button_text'] ); ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<th><label for="coupon_invalid_text">Invalid Coupon Message</label></th>
+						<td>
+							<input type="text" id="coupon_invalid_text" name="coupon_invalid_text" class="regular-text"
+								value="<?php echo esc_attr( $settings['coupon_invalid_text'] ); ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<th><label for="coupon_expired_text">Expired Coupon Message</label></th>
+						<td>
+							<input type="text" id="coupon_expired_text" name="coupon_expired_text" class="regular-text"
+								value="<?php echo esc_attr( $settings['coupon_expired_text'] ); ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<th><label for="coupon_applied_text">Coupon Applied Message</label></th>
+						<td>
+							<input type="text" id="coupon_applied_text" name="coupon_applied_text" class="regular-text"
+								value="<?php echo esc_attr( $settings['coupon_applied_text'] ); ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<th><label for="coupon_remove_text">Remove Coupon Text</label></th>
+						<td>
+							<input type="text" id="coupon_remove_text" name="coupon_remove_text" class="regular-text"
+								value="<?php echo esc_attr( $settings['coupon_remove_text'] ); ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<th><label for="coupon_subtotal_text">Subtotal Label</label></th>
+						<td>
+							<input type="text" id="coupon_subtotal_text" name="coupon_subtotal_text" class="regular-text"
+								value="<?php echo esc_attr( $settings['coupon_subtotal_text'] ); ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<th><label for="coupon_discount_text">Discount Label</label></th>
+						<td>
+							<input type="text" id="coupon_discount_text" name="coupon_discount_text" class="regular-text"
+								value="<?php echo esc_attr( $settings['coupon_discount_text'] ); ?>">
+						</td>
+					</tr>
+
+					<tr>
+						<th><label for="coupon_email_label_text">Applied Coupon Label (Email)</label></th>
+						<td>
+							<input type="text" id="coupon_email_label_text" name="coupon_email_label_text" class="regular-text"
+								value="<?php echo esc_attr( $settings['coupon_email_label_text'] ); ?>">
+						</td>
+					</tr>
+
 				</table>
 			</div>
 

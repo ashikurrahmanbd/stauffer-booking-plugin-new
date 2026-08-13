@@ -1134,3 +1134,139 @@
     }
 
 }
+
+/* ==========================================
+   Newly Added: Coupon Code Section
+========================================== */
+
+.stauffer-coupon-section {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.coupon-input-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.stauffer-booking-form-wrapper .coupon-code-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    transition: all .3s ease;
+}
+
+.stauffer-booking-form-wrapper .coupon-code-input:focus {
+    outline: none;
+    border-color: #0c2850;
+    box-shadow: 0 0 0 2px rgba(12, 40, 80, 0.1);
+}
+
+.stauffer-booking-form-wrapper button.apply-coupon-btn {
+    flex: 0 0 auto;
+    height: 44px;
+    padding: 0 16px !important;
+    border: none !important;
+    border-radius: 6px !important;
+
+    background-color: #2A5EB4 !important;
+    color: #fff !important;
+
+    font-size: 13px !important;
+    font-weight: 600;
+    line-height: 1 !important;
+
+    cursor: pointer;
+    box-shadow: none !important;
+    transition: background-color .3s ease;
+}
+
+.stauffer-booking-form-wrapper button.apply-coupon-btn:hover {
+    background-color: #0c2850 !important;
+}
+
+.stauffer-booking-form-wrapper button.apply-coupon-btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+/* Validation message */
+.coupon-message {
+    display: none;
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.coupon-message.coupon-error {
+    color: #dc2626;
+}
+
+.coupon-message.coupon-success {
+    color: #15803d;
+}
+
+/* Applied coupon chip */
+.applied-coupon-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    margin-top: 8px;
+    padding: 10px 12px;
+
+    background: #f3efff;
+    border-radius: 6px;
+}
+
+.applied-coupon-code {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0c2850;
+    word-break: break-all;
+}
+
+.stauffer-booking-form-wrapper button.remove-coupon-btn {
+    flex: 0 0 auto;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+
+    color: #dc2626 !important;
+    font-size: 12px !important;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Subtotal + discount breakdown */
+.cleaning-booking-discount-rows {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.booking-subtotal-row,
+.booking-discount-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.booking-discount-row {
+    color: #15803d;
+    font-weight: 600;
+}
+
+/* End Newly Added: Coupon Code Section */

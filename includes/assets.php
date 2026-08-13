@@ -40,6 +40,15 @@ function stauffer_booking_enqueue_assets() {
 			'ajax_url' => admin_url('admin-ajax.php'),
 			'nonce'    => wp_create_nonce('stauffer_booking_nonce'),
 			'button_step_2_text' => $button_step_2_text,
+
+			//currency + coupon texts used by the summary
+			'currency'              => $settings['currency'],
+			'coupon_button_text'    => $settings['coupon_button_text'],
+			'coupon_invalid_text'   => $settings['coupon_invalid_text'],
+			'coupon_expired_text'   => $settings['coupon_expired_text'],
+			'coupon_applied_text'   => $settings['coupon_applied_text'],
+			'coupon_subtotal_text'  => $settings['coupon_subtotal_text'],
+			'coupon_discount_text'  => $settings['coupon_discount_text'],
 		)
 	);
 

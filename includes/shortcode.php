@@ -55,6 +55,14 @@ function stauffer_booking_form_shortcode_callback($atts){
 	//booking summery
 	$booking_summery_section_title = $settings['summary_title'] ?? 'Booking Summery';
 
+	//coupon section texts
+	$currency                 = $settings['currency'] ?? 'CHF';
+	$coupon_placeholder_text  = $settings['coupon_placeholder_text'] ?? 'Coupon Code';
+	$coupon_button_text       = $settings['coupon_button_text'] ?? 'Apply Coupon';
+	$coupon_remove_text       = $settings['coupon_remove_text'] ?? 'Remove';
+	$coupon_subtotal_text     = $settings['coupon_subtotal_text'] ?? 'Subtotal';
+	$coupon_discount_text     = $settings['coupon_discount_text'] ?? 'Discount';
+
 
 	ob_start();
 	?>
@@ -530,9 +538,58 @@ function stauffer_booking_form_shortcode_callback($atts){
 
 					</div>
 
+					<!-- Coupon Code section -->
+					<div class="stauffer-coupon-section">
+
+						<div class="coupon-input-wrapper">
+
+							<input
+								type="text"
+								class="coupon-code-input"
+								name="coupon_code"
+								placeholder="<?php echo esc_attr( $coupon_placeholder_text ); ?>"
+								autocomplete="off"
+							>
+
+							<button type="button" class="apply-coupon-btn">
+								<?php echo esc_html( $coupon_button_text ); ?>
+							</button>
+
+						</div>
+
+						<div class="coupon-message"></div>
+
+						<div class="applied-coupon-row" style="display:none;">
+							<span class="applied-coupon-code"></span>
+							<button type="button" class="remove-coupon-btn">
+								<?php echo esc_html( $coupon_remove_text ); ?>
+							</button>
+						</div>
+
+						<!-- keeps the applied code in the form for submission -->
+						<input type="hidden" name="applied_coupon_code" id="applied_coupon_code" value="">
+
+					</div>
+					<!-- End of Coupon Code section -->
+
+					<!-- Subtotal + discount breakdown, only visible with a coupon applied -->
+					<div class="cleaning-booking-discount-rows" style="display:none;">
+
+						<div class="booking-subtotal-row">
+							<span class="subtotal-title"><?php echo esc_html( $coupon_subtotal_text ); ?></span>
+							<span class="subtotal-amount"></span>
+						</div>
+
+						<div class="booking-discount-row">
+							<span class="discount-title"><?php echo esc_html( $coupon_discount_text ); ?></span>
+							<span class="discount-amount"></span>
+						</div>
+
+					</div>
+
 					<div class="cleanig-booking-total">
 						<span class="total-title">Bruttogesamt</span>
-						<span class="total-amount">0 <span class="total-amount-currenty">CHF</span></span>
+						<span class="total-amount">0 <span class="total-amount-currenty"><?php echo esc_html( $currency ); ?></span></span>
 					</div>
 				</div>
 			</div>
@@ -593,6 +650,33 @@ function stauffer_submit_booking_callback() {
     $date_time  = sanitize_text_field($_POST['date_time'] ?? '');
     $extras     = sanitize_textarea_field($_POST['extras'] ?? '');
     $total      = sanitize_text_field($_POST['total'] ?? '');
+
+	//coupon data submitted with the booking
+	$coupon_code = sanitize_text_field($_POST['coupon_code'] ?? '');
+	$subtotal    = sanitize_text_field($_POST['subtotal'] ?? '');
+	$discount    = sanitize_text_field($_POST['discount'] ?? '');
+
+	/**
+	 * The coupon is revalidated here so the email can never show a discount
+	 * from a code that is wrong or expired, whatever the browser posted.
+	 */
+	$coupon_is_valid = false;
+
+	if ( ! empty( $coupon_code ) ) {
+
+		$coupon = stauffer_booking_get_coupon_by_code( $coupon_code );
+
+		if ( $coupon && ! stauffer_booking_is_coupon_expired( $coupon ) ) {
+			$coupon_is_valid = true;
+			$coupon_code     = $coupon['code'];
+		} else {
+			$coupon_code = '';
+		}
+	}
+
+	$coupon_label = $settings['coupon_email_label_text'] ?? 'Applied Coupon';
+	$subtotal_label = $settings['coupon_subtotal_text'] ?? 'Subtotal';
+	$discount_label = $settings['coupon_discount_text'] ?? 'Discount';
 
     if (empty($first_name) || empty($phone) || empty($email)) {
         wp_send_json_error('Please fill all required fields.');
@@ -663,6 +747,22 @@ function stauffer_submit_booking_callback() {
 							<td><strong>Zusatzleistungen</strong></td>
 							<td>' . nl2br(esc_html($extras)) . '</td>
 						</tr>
+
+						' . ( $coupon_is_valid ? '
+						<tr>
+							<td><strong>' . esc_html($coupon_label) . '</strong></td>
+							<td>' . esc_html($coupon_code) . '</td>
+						</tr>
+						<tr>
+							<td><strong>' . esc_html($subtotal_label) . '</strong></td>
+							<td>' . esc_html($subtotal) . '</td>
+						</tr>
+						<tr>
+							<td><strong>' . esc_html($discount_label) . '</strong></td>
+							<td>- ' . esc_html($discount) . '</td>
+						</tr>
+						' : '' ) . '
+
 					</table>
 
 					<div style="margin-top:25px; background:#0c2850; color:#ffffff; padding:15px; border-radius:6px; font-size:16px;text-align:center;">

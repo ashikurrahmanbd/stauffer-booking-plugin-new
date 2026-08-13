@@ -25,6 +25,8 @@ define( 'STAUFFER_BOOKING_URL', plugin_dir_url( __FILE__ ) );
 $assets_file = STAUFFER_BOOKING_PATH . 'includes/assets.php';
 $shortcode_file = STAUFFER_BOOKING_PATH . 'includes/shortcode.php';
 $admin_menu_file = STAUFFER_BOOKING_PATH . 'includes/admin-menu.php';
+$coupons_file = STAUFFER_BOOKING_PATH . 'includes/coupons.php';
+$coupons_admin_file = STAUFFER_BOOKING_PATH . 'includes/coupons-admin.php';
 
 if( file_exists( $assets_file ) ){
     require_once STAUFFER_BOOKING_PATH . 'includes/assets.php';
@@ -36,6 +38,14 @@ if( file_exists( $shortcode_file ) ){
 
 if( file_exists( $admin_menu_file ) ){
     require_once STAUFFER_BOOKING_PATH . 'includes/admin-menu.php';
+}
+
+if( file_exists( $coupons_file ) ){
+    require_once STAUFFER_BOOKING_PATH . 'includes/coupons.php';
+}
+
+if( file_exists( $coupons_admin_file ) ){
+    require_once STAUFFER_BOOKING_PATH . 'includes/coupons-admin.php';
 }
 
 
