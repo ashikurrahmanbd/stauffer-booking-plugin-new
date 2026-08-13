@@ -1,0 +1,1136 @@
+/* Stauffer Bookign Form CSS started */
+
+/* general css */
+.stauffer-booking-form-wrapper h3{
+    font-size: 18px;
+    font-weight: normal;
+}
+
+
+.stauffer-booking-form-wrapper{
+   width: 100%;
+   max-width: 1200px;
+   margin: auto;
+}
+
+.stauffer-booking-form{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.stauffer-booking-form .stauffer-form-fields{
+    width: 70%;
+    
+}
+@media (max-width: 767px) {
+    .stauffer-booking-form{
+        flex-direction: column;
+    }
+    .stauffer-booking-form .stauffer-form-fields{
+        width: 100%;
+        
+    } 
+    .stauffer-booking-form .form-summery{
+        width: 100%;
+        position:static;
+    }
+}
+
+/* Form fields */
+.stauffer-form-fields .cleaning-information .cleaning-frequency{
+
+    border: 1px solid #000;
+    background: #fff;
+   
+}
+
+.cleaning-frequency h3{
+    background: #0c2850;
+    color: #fff;
+    padding: 12px 15px;
+}
+
+
+/* cleaning frequency options */
+.cleaning-frequency-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+    padding: 15px;
+}
+
+.frequency-option {
+    flex: 1 1 0;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.frequency-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.option-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+    padding: 20px 15px;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+
+}
+
+.option-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1f2937;
+}
+
+.option-description {
+    display: block;
+    margin-top: 12px;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.recommended-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f3efff;
+    color: #0c2850;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.frequency-option:hover .option-content {
+    border-color: #0c2850;
+}
+
+.frequency-option input[type="radio"]:checked + .option-content {
+    border-color: #0c2850;
+    box-shadow: 0 10px 25px rgba(91, 50, 255, 0.12);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cleaning-frequency-options {
+        flex-wrap: wrap;
+    }
+
+    .frequency-option {
+        flex: 1 1 calc(50% - 8px);
+    }
+
+    .option-content {
+        min-height: 140px;
+    }
+
+    .option-title {
+        font-size: 15px;
+    }
+
+    .option-description {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .frequency-option {
+        flex: 1 1 100%;
+    }
+}
+
+/* End of Cleaning frequency option css */
+
+/** Starts cleaning hours css */
+.cleaning-hours {
+    margin-top: 20px;
+    border: 1px solid #000;
+    margin-bottom: 20px;;
+    background: #fff;
+   
+}
+
+.cleaning-hours h3{
+    background: #0c2850;
+    color: #fff;
+    padding: 12px 15px;
+    margin-bottom: 0;
+}
+
+.time-duration-selector {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding:15px;
+}
+
+.stauffer-booking-form-wrapper button.service-duration-plus,
+.stauffer-booking-form-wrapper button.service-duration-minus {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    padding: 0 !important;
+    border: 1px solid #cfcfcf !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+    color: #111827 !important;
+    font-size: 28px !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+
+.stauffer-booking-form-wrapper button.service-duration-plus:hover,
+.stauffer-booking-form-wrapper button.service-duration-minus:hover {
+    border-color: #5b32ff !important;
+    color: #5b32ff !important;
+    background: #fff !important;
+}
+
+
+.duration-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    min-width: 135px;
+}
+
+.service-duration-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.duration-unit {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.duration-recommendation {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+    padding: 0 15px;
+}
+
+.info-icon {
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+/* End of cleaning hours css */
+
+/* Cleaning Extra services css */
+
+.cleaning-extra-services{
+    border: 1px solid #000;
+    background: #fff;
+}
+
+.cleaning-extra-services h3{
+    background: #0c2850;
+    color: #fff;
+    padding: 12px 15px;
+    margin-bottom: 0;
+}
+
+.cleaning-extra-services label{
+    margin-bottom:0;
+}
+
+.extra-services-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 15px;
+}
+
+@media (max-width: 767px) {
+    .extra-services-options{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.extra-service-option input[type="checkbox"] {
+    display: none;
+}
+
+.extra-service-option .service-card {
+    border: 2px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 10px !important;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.extra-service-option input:checked + .service-card {
+    border-color: #0c2850;
+    box-shadow: 0 10px 25px rgba(91, 50, 255, .12);
+}
+
+.extra-service-option .service-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+
+.extra-service-option .service-title img{
+    display: inline-block;
+    width: 40px;
+    height: auto;
+}
+
+@media (max-width: 580px) {
+    .extra-services-options {
+        gap:10px;
+    }
+    .extra-service-option .service-title{
+        font-size: 12px;
+    }
+    .extra-service-option .service-title img{
+        width: 22px;
+    }
+}
+
+.extra-service-duration {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stauffer-booking-form-wrapper button.extra-services-duration-plus,
+.stauffer-booking-form-wrapper button.extra-services-duration-minus {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    padding: 0 !important;
+    border: 1px solid #cfcfcf !important;
+    border-radius: 50% !important;
+    background: #fff !important;
+    color: #111827 !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+
+.stauffer-booking-form-wrapper button.extra-services-duration-plus:hover,
+.stauffer-booking-form-wrapper button.extra-services-duration-minus:hover {
+    border-color: #5b32ff !important;
+    color: #5b32ff !important;
+    background: #fff !important;
+}
+
+
+.extra-service-duration input {
+    width: 120px;
+    text-align: center;
+    border: none;
+    font-weight: 600;
+    background: transparent;
+}
+
+.duration-unit {
+    font-size: 14px;
+    color: #666;
+}
+
+/* End of cleaning extra services css */
+
+
+/* start css for date and time selection for the booking */
+.cleaning-date-time{
+    border: 1px solid #000;
+    margin-top: 20px;
+    background: #fff;
+}
+
+.cleaning-date-time h3{
+    background: #0c2850;
+    color: #fff;
+    padding: 12px 15px;
+    margin-bottom: 0;
+}
+
+.booking-datetime-wrapper{
+    padding: 20px;
+}
+
+.booking-label{
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #111827;
+}
+
+.booking-date-section{
+    margin-bottom: 25px;
+}
+
+.booking-date-input{
+    width: 100%;
+    max-width: 320px;
+    height: 50px;
+    padding: 0 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all .3s ease;
+}
+
+.booking-date-input:focus{
+    outline: none;
+    border-color: #0c2850;
+}
+
+.time-slots{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+
+.time-slot{
+    margin: 0;
+}
+
+.time-slot input{
+    display: none;
+}
+
+.time-slot span{
+    display: block;
+    padding: 12px;
+    text-align: center;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.time-slot span:hover{
+    border-color: #0c2850;
+}
+
+.time-slot input:checked + span{
+    background: #0c2850;
+    border-color: #0c2850;
+    color: #fff;
+}
+
+/* for mobile and tab responsive */
+@media(max-width:991px){
+    .time-slots{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
+@media(max-width:767px){
+    .time-slots{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* end of date and time selection for the booking */
+
+
+/* Start Right side Booking form summery */
+.stauffer-booking-form .form-summery{
+    background-color: #fff;
+    width: 30%;
+    margin-top: 66px;
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+}
+
+@media (max-width: 767px) {
+    
+    .stauffer-booking-form .form-summery{
+        width: 100%;
+        position:static;
+    }
+}
+
+.form-summery-content{
+    border: 1px solid #000;
+    padding: 15px
+    
+}
+
+.form-summery h3.field-title{
+    background: #0c2850;
+    color: #fff;
+    padding: 12px 15px;
+    margin-bottom: 0;
+}
+
+.form-summery-content img{
+    width: 20px;
+    display: inline-block;
+}
+
+.cleaning-booking-summery{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cleaning-booking-summery ul.cleaning-extra-services-list li{
+    font-size: 14px;
+}
+
+.cleanig-booking-total{
+    margin-top: 20px;
+    background-color: #0c2850;
+    padding:10px 12px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.cleanig-booking-total span.total-amount{
+    font-size: 24px;
+}
+
+.cleanig-booking-total span.total-amount span.total-amount-currenty{
+    font-size: 16px;
+}
+
+/* End of Right side booking form summery */
+
+/* Form step Action */
+
+.stauffer-booking-action{
+    margin-top: 25px;
+    text-align: right;
+}
+
+.stauffer-booking-action button.stfr-step-btn{
+    padding: 15px 40px;
+    background-color: #2A5EB4;
+    cursor: pointer;
+}
+
+.stauffer-booking-action button.stfr-step-btn:hover{
+    background-color: #0c2850;   
+}
+
+/* End of Form Step Action */
+
+/* Step Personal information */
+.step-personal-information{
+   
+}
+
+
+
+.customer-details-wrapper {
+    border: 1px solid #000;
+}
+
+.customer-details-wrapper .field-title {
+    background: #0c2850;
+    color: #fff;
+    padding: 12px 15px;
+    margin-bottom: 0;
+}
+
+.stauffer-customer-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 20px;
+}
+
+.customer-field-full {
+    grid-column: 1 / -1;
+}
+
+.stauffer-customer-details input,
+.stauffer-customer-details textarea {
+    width: 100%;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 16px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.stauffer-customer-details input:focus,
+.stauffer-customer-details textarea:focus {
+    outline: none;
+    border-color: #0c2850;
+    box-shadow: 0 0 0 2px rgba(12, 40, 80, 0.1);
+}
+
+.stauffer-customer-details textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.stauffer-customer-details input::placeholder,
+.stauffer-customer-details textarea::placeholder {
+    color: #6b7280;
+}
+
+@media (max-width: 767px) {
+    .stauffer-customer-details {
+        grid-template-columns: 1fr;
+    }
+
+    .customer-field-full {
+        grid-column: auto;
+    }
+}
+
+#step-2{
+    display: none;
+}
+
+/* End of Step Personal information */
+
+/* Stauffer Form Steps */
+
+.stauffer-form-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 15px;
+    position: relative;
+}
+
+.stauffer-form-steps::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 70px;
+    right: 70px;
+    height: 1px;
+    background: #0c2850;
+    z-index: 1;
+}
+
+.stauffer-form-steps span.step-number {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #0c2850;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    color: #111827;
+}
+
+.stauffer-form-steps span.step-info {
+    font-size: 10px;
+    color: #111827;
+}
+
+.stauffer-form-steps .step-1,
+.stauffer-form-steps .step-2,
+.stauffer-form-steps .step-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Active step */
+.stauffer-form-steps > span.active .step-number {
+    background: #0c2850;
+    color: #fff;
+}
+
+.stauffer-form-steps > span.active .step-info {
+    color: #0c2850;
+    font-weight: 600;
+}
+
+
+/* End of Stauffer Form Steps */
+
+/* Booking Date no selecting error */
+
+.booking-date-error {
+    display: none;
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* End of Boooking no selecting error */
+
+
+/** Thank you section css after booking */
+.form-booking-confirmation{
+    display: none;
+    text-align: center;
+    margin-top: 75px;
+}
+
+
+.form-booking-confirmation h2{
+    color: #0c2850;
+    font-size: 35px;
+}
+
+.form-booking-confirmation a{
+    font-size: 16px;
+    padding: 15px 30px;
+    background-color: #0c2850;
+    color: #fff;
+    
+}
+
+.form-booking-confirmation a:hover{
+    background-color: #2A5EB4;
+    
+}
+
+/* Booking Form cleanign hours info tool tip css */
+.info-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.info-icon {
+    cursor: pointer;
+    margin-left: 6px;
+    color: #0c2850;
+    font-size: 14px;
+}
+
+.tooltip-content {
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 175px;
+    padding: 8px;
+
+    background: #0c2850;
+    color: #fff;
+
+    font-size: 10px;
+    line-height: 1.5;
+
+    border-radius: 8px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.2s ease;
+
+    text-align: center;
+
+    z-index: 999;
+}
+
+.tooltip-content::after {
+    content: '';
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-width: 6px;
+    border-style: solid;
+    border-color: #0c2850 transparent transparent transparent;
+}
+
+.info-tooltip:hover .tooltip-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* End of tooltip css */
+
+/* ==========================================
+   Newly Added: More Often Schedule Section
+========================================== */
+
+.more-often-schedule {
+    margin: 20px 0 !important;
+    border: 1px solid #000;
+    background: #fff;
+}
+
+.more-often-schedule .field-title {
+    background: #0c2850;
+    color: #fff;
+    padding: 12px 15px;
+    margin-bottom: 0;
+}
+
+.more-often-content {
+    padding: 20px;
+}
+
+/* Weekly visit count */
+.weekly-cleaning-count {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #f7f7f7;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.weekly-cleaning-count button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #dcdcdc;
+    background: #fff !important;
+    color: #000 !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+    border-radius: 50% !important;
+    cursor: pointer;
+
+    font-size: 28px;
+    line-height: 1;
+}
+
+.weekly-count-value {
+    width: 60px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.weekly-count-label {
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+/* Schedule rows */
+.weekly-schedule-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.weekly-schedule-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+}
+
+/* Weekday select */
+.weekly-day-field label,
+.weekly-time-field label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+    color: #666;
+}
+
+.weekly-day-select {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 0 15px;
+    background: #fff;
+}
+
+/* Time Picker */
+.weekly-time-field {
+    position: relative;
+    z-index: 50;
+}
+
+.weekly-time-picker {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    background: #fff !important;
+    padding: 0 15px;
+    cursor: pointer;
+    color: #000 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weekly-time-dropdown {
+    
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+
+    width: 310px;
+    max-width: 90vw;
+
+    background: #ffffff !important;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 10px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 99999;
+
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+
+}
+
+.weekly-time-dropdown .more-often-time-slot {
+    width: auto !important;
+    height: 38px !important;
+    min-width: 0 !important;
+    min-height: 38px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 1px solid #dcdcdc !important;
+    border-radius: 4px !important;
+
+    background: #fff !important;
+    color: #111827 !important;
+
+    font-size: 13px !important;
+    line-height: 1 !important;
+    box-shadow: none !important;
+}
+
+.weekly-time-dropdown .more-often-time-slot:hover,
+.weekly-time-dropdown .more-often-time-slot.active {
+    background: #0c2850 !important;
+    border-color: #0c2850 !important;
+    color: #fff !important;
+}
+
+.weekly-time-dropdown button {
+    border: 1px solid #dcdcdc !important;
+    background: #fff !important;
+    padding: 8px 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #000 !important;
+}
+
+.weekly-time-dropdown button:hover {
+    border-color: #0c2850;
+}
+
+.weekly-time-dropdown button.active {
+    background: #0c2850;
+    color: #fff;
+    border-color: #0c2850;
+}
+
+/* Daily Hours Selector */
+.weekly-hours-field {
+    display: flex;
+    align-items: center;
+}
+
+/* .weekly-hours-field button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.weekly-hours-value {
+    width: 50px;
+    height: 42px;
+
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+    font-weight: 600;
+} */
+
+/* start new code */
+.stauffer-booking-form-wrapper .weekly-hours-field button.weekly-hours-minus,
+.stauffer-booking-form-wrapper .weekly-hours-field button.weekly-hours-plus {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border: 1px solid #dcdcdc !important;
+    border-radius: 0 !important;
+
+    background: #fff !important;
+    color: #000 !important;
+
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transform: none !important;
+    cursor: pointer;
+}
+
+.stauffer-booking-form-wrapper .weekly-hours-field span.weekly-hours-value {
+    width: 54px !important;
+    height: 50px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-top: 1px solid #dcdcdc !important;
+    border-bottom: 1px solid #dcdcdc !important;
+
+    background: #ffffff !important;
+    color: #111827 !important;
+
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+}
+/* end new code */
+
+.weekly-hours-label {
+    margin-left: 10px;
+}
+
+/* Summary weekly schedule */
+.more-often-summary-list {
+    margin-top: 8px;
+    margin-left: 25px;
+}
+
+.more-often-summary-list li {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* For fixing the time picker grid overlaping iss */
+
+.weekly-schedule-row {
+    position: relative;
+    z-index: 1;
+}
+
+.weekly-schedule-row:has(.weekly-time-dropdown[style*="grid"]) {
+    z-index: 999;
+}
+
+.weekly-time-field {
+    position: relative;
+}
+
+.weekly-time-dropdown {
+    top: calc(100% + 8px);
+    z-index: 99999;
+}
+
+/* another portion of fixing css code */
+.weekly-schedule-row {
+    position: relative;
+    z-index: 1;
+}
+
+.weekly-schedule-row.time-open {
+    z-index: 9999;
+}
+
+.weekly-time-dropdown {
+    z-index: 99999;
+}
+/* end another portion of fixing css code */
+
+/* End of fixing the time picker grid overlapig issue */
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    .weekly-schedule-row {
+        grid-template-columns: 1fr;
+    }
+
+    .weekly-hours-field {
+        justify-content: flex-start;
+    }
+
+    .weekly-time-dropdown {
+        width: 100%;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}

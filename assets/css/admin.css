@@ -1,0 +1,12 @@
+/* Admin Panel Bookign Form Customization CSS */
+.stauffer-tab-content {
+    display: none;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-top: none;
+    padding: 20px;
+}
+
+.stauffer-tab-content.active {
+    display: block;
+}
